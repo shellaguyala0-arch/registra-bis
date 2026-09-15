@@ -447,6 +447,12 @@ class PaymentController extends Controller
             'Barangay Clearance'
                 => 'Barangay Clearance',
 
+            'Barangay Certification'
+                => 'Barangay Certification',
+
+            'Filing Fee Certificate'
+                => 'Filing Fee Certificate',
+
             'Residency'
                 => 'Certificate of Residency',
 
@@ -459,7 +465,6 @@ class PaymentController extends Controller
             'Other Barangay Certification'
                 => 'Barangay Certification',
         ];
-
 
         try {
 

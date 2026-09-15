@@ -6,19 +6,15 @@
 
 @if(session('success'))
     <div class="payment-alert payment-alert-success">
-
         <div class="payment-alert-icon">
             <i class="bi bi-check-circle-fill"></i>
         </div>
-
         <div class="payment-alert-content">
             <strong>Payment recorded successfully!</strong>
-
             <span>
                 {{ session('success') }}
             </span>
         </div>
-
         <button
             type="button"
             class="payment-alert-close"
@@ -29,23 +25,17 @@
 
     </div>
 @endif
-
-
 @if(session('error'))
     <div class="payment-alert payment-alert-error">
-
         <div class="payment-alert-icon">
             <i class="bi bi-x-circle-fill"></i>
         </div>
-
         <div class="payment-alert-content">
             <strong>Payment was not recorded.</strong>
-
             <span>
                 {{ session('error') }}
             </span>
         </div>
-
         <button
             type="button"
             class="payment-alert-close"
@@ -60,21 +50,15 @@
 
 @if($errors->any())
     <div class="payment-alert payment-alert-error">
-
         <div class="payment-alert-icon">
             <i class="bi bi-exclamation-triangle-fill"></i>
         </div>
-
         <div class="payment-alert-content">
-
             <strong>Please correct the following:</strong>
-
             @foreach($errors->all() as $error)
                 <span>{{ $error }}</span>
             @endforeach
-
         </div>
-
         <button
             type="button"
             class="payment-alert-close"
@@ -82,115 +66,70 @@
         >
             ×
         </button>
-
     </div>
 @endif
 
-
 <div class="fee-page">
-
-    {{-- =========================================================
-         PAGE HEADER
-    ========================================================== --}}
-
     <div class="page-header">
-
         <div class="header-icon">
             <i class="bi bi-receipt-cutoff"></i>
         </div>
-
         <div class="header-text">
-
             <h1>Fee Assessment & Registration</h1>
-
             <p>
                 Select a transaction type and record the applicable barangay fee.
             </p>
-
         </div>
 
         <div class="header-badge">
-
             <i class="bi bi-shield-check"></i>
-
             <span>Treasurer Transaction</span>
-
         </div>
-
     </div>
-
-
-    {{-- =========================================================
-         STEPPER
-    ========================================================== --}}
-
     <div class="stepper-card">
-
         <div class="step active">
-
             <div class="step-circle">1</div>
-
             <div class="step-text">
                 <strong>Select Transaction</strong>
                 <small>Transaction type</small>
             </div>
-
         </div>
 
         <div class="step-line"></div>
-
         <div class="step">
-
             <div class="step-circle">2</div>
-
             <div class="step-text">
                 <strong>Input Information</strong>
                 <small>Business & details</small>
             </div>
-
         </div>
 
         <div class="step-line"></div>
-
         <div class="step">
-
             <div class="step-circle">3</div>
-
             <div class="step-text">
                 <strong>Fee Assessment</strong>
                 <small>Automatic amount</small>
             </div>
-
         </div>
 
         <div class="step-line"></div>
-
         <div class="step">
-
             <div class="step-circle">4</div>
-
             <div class="step-text">
                 <strong>Payment Processing</strong>
                 <small>Record payment</small>
             </div>
-
         </div>
-
         <div class="step-line"></div>
-
         <div class="step">
-
             <div class="step-circle">5</div>
-
             <div class="step-text">
                 <strong>Confirmation</strong>
                 <small>Transaction complete</small>
             </div>
-
         </div>
-
     </div>
-
 
     <form
         method="POST"
@@ -200,60 +139,35 @@
 
         @csrf
 
-
-        {{-- =====================================================
-             STEP 1
-        ====================================================== --}}
-
         <div class="content-card">
-
             <div class="card-heading">
-
                 <div class="heading-icon">
                     <i class="bi bi-list-check"></i>
                 </div>
-
                 <div>
-
                     <h3>Step 1: Select Transaction Type</h3>
-
                     <p>
                         Choose the type of transaction to determine the applicable fee.
                     </p>
-
                 </div>
-
             </div>
 
-
             <div class="transaction-grid">
-
-
-                {{-- =================================================
-                     BUSINESS CLEARANCE
-                ================================================== --}}
-
                 <label class="transaction-card">
-
                     <input
                         type="radio"
                         name="transaction_type"
                         value="Business Clearance"
                         @checked(old('transaction_type') === 'Business Clearance')
                     >
-
                     <div class="transaction-icon">
                         <i class="bi bi-building-check"></i>
                     </div>
-
                     <div class="transaction-content">
-
                         <strong>Business Clearance</strong>
-
                         <span>
                             Business registration and clearance
                         </span>
-
                     </div>
 
                     <div class="transaction-check">
@@ -262,13 +176,7 @@
 
                 </label>
 
-
-                {{-- =================================================
-                     SIGNBOARD TAX
-                ================================================== --}}
-
                 <label class="transaction-card">
-
                     <input
                         type="radio"
                         name="transaction_type"
@@ -296,11 +204,6 @@
 
                 </label>
 
-
-                {{-- =================================================
-                     COMMERCIAL BREEDING TAX
-                ================================================== --}}
-
                 <label class="transaction-card">
 
                     <input
@@ -313,62 +216,37 @@
                     <div class="transaction-icon">
                         <i class="bi bi-activity"></i>
                     </div>
-
                     <div class="transaction-content">
-
                         <strong>Commercial Breeding Tax</strong>
-
                         <span>
                             Tax on commercial breeding
                         </span>
-
                     </div>
-
                     <div class="transaction-check">
                         <i class="bi bi-check-circle-fill"></i>
                     </div>
-
                 </label>
-
-
-                {{-- =================================================
-                     COVERED COURT
-                ================================================== --}}
-
                 <label class="transaction-card">
-
                     <input
                         type="radio"
                         name="transaction_type"
                         value="Covered Court Fee"
                         @checked(old('transaction_type') === 'Covered Court Fee')
                     >
-
                     <div class="transaction-icon">
                         <i class="bi bi-calendar-event"></i>
                     </div>
 
                     <div class="transaction-content">
-
                         <strong>Covered Court Fee</strong>
-
                         <span>
                             Court usage for events
                         </span>
-
                     </div>
-
                     <div class="transaction-check">
                         <i class="bi bi-check-circle-fill"></i>
                     </div>
-
                 </label>
-
-
-                {{-- =================================================
-                     FILING COMPLAINT
-                ================================================== --}}
-
                 <label class="transaction-card">
 
                     <input
@@ -397,11 +275,6 @@
                     </div>
 
                 </label>
-
-
-                {{-- =================================================
-                     CERTIFICATION FEE
-                ================================================== --}}
 
                 <label class="transaction-card">
 
@@ -436,11 +309,6 @@
 
         </div>
 
-
-        {{-- =========================================================
-             STEP 2
-        ========================================================== --}}
-
         <div
             class="content-card"
             id="detailsCard"
@@ -467,12 +335,6 @@
 
 
             <div class="details-body">
-
-
-                {{-- =================================================
-                     BUSINESS CLEARANCE DETAILS
-                ================================================== --}}
-
                 <div
                     class="transaction-details"
                     id="businessClearanceDetails"
@@ -564,34 +426,21 @@
 
                 </div>
 
-
-                {{-- =================================================
-                     CERTIFICATION / BARANGAY CLEARANCE DETAILS
-                ================================================== --}}
-
                 <div
                     class="transaction-details"
                     id="certificationDetails"
                 >
-
                     <label class="form-label">
-
                         <i class="bi bi-award"></i>
-
                         Certification / Clearance Type <span>*</span>
-
                     </label>
-
                     <select
                         id="certification_type_select"
                         class="form-select fee-selector"
                     >
-
                         <option value="">
                             Select certification / clearance type
                         </option>
-
-                        {{-- Barangay Clearance is now under Certification Fee --}}
                         <option
                             value="100"
                             data-label="Barangay Clearance"
@@ -653,11 +502,6 @@
 
                 </div>
 
-
-                {{-- =================================================
-                     COMPLAINT DETAILS
-                ================================================== --}}
-
                 <div
                     class="transaction-details"
                     id="complaintDetails"
@@ -686,9 +530,6 @@
                 </div>
 
 
-                {{-- =================================================
-                     SIGNBOARD DETAILS
-                ================================================== --}}
 
                 <div
                     class="transaction-details"
@@ -765,12 +606,6 @@
                     </div>
 
                 </div>
-
-
-                {{-- =================================================
-                     COVERED COURT DETAILS
-                ================================================== --}}
-
                 <div
                     class="transaction-details"
                     id="courtDetails"
@@ -882,90 +717,53 @@
 
                 </div>
 
-
                 {{-- =================================================
-                     COMMERCIAL BREEDING DETAILS
-                ================================================== --}}
+     COMMERCIAL BREEDING DETAILS
+================================================== --}}
 
-                <div
-                    class="transaction-details"
-                    id="breedingDetails"
-                >
+<div
+    class="transaction-details"
+    id="breedingDetails"
+>
 
-                    <div class="notice-box">
+    <div class="fixed-fee-box">
 
-                        <i class="bi bi-info-circle"></i>
+        <div class="fixed-fee-icon">
+            <i class="bi bi-activity"></i>
+        </div>
 
-                        <div>
+        <div>
 
-                            <strong>Fee schedule not provided</strong>
+            <strong>Commercial Breeding Tax</strong>
 
-                            <span>
-                                The documents provided do not show the official
-                                Commercial Breeding Tax amount. Please enter the
-                                officially assessed amount below.
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-                    <label class="form-label mt-3">
-
-                        <i class="bi bi-cash-stack"></i>
-
-                        Assessed Amount <span>*</span>
-
-                    </label>
-
-                    <input
-                        type="number"
-                        id="breeding_amount"
-                        class="form-control"
-                        min="0.01"
-                        step="0.01"
-                        placeholder="Enter official assessed amount"
-                    >
-
-                </div>
-
-            </div>
+            <span>
+                Fixed tax for commercial breeding
+            </span>
 
         </div>
 
+        <b>₱50.00</b>
+    </div>
+</div>
 
-        {{-- =========================================================
-             STEP 3
-        ========================================================== --}}
 
         <div class="content-card">
-
             <div class="card-heading">
-
                 <div class="heading-icon">
                     <i class="bi bi-credit-card"></i>
                 </div>
-
                 <div>
-
                     <h3>Step 3: Payment Information</h3>
-
                     <p>
                         Enter the business and payment information.
                     </p>
-
                 </div>
-
             </div>
 
 
             <div class="payment-body">
 
 
-                {{-- =================================================
-                     BUSINESS SEARCH
-                ================================================== --}}
 
                 <div
                     class="payment-field"
@@ -1071,13 +869,7 @@
                 </div>
 
 
-                {{-- =================================================
-                     PERSONAL INFORMATION
-                     Used by Certification Fee INCLUDING
-                     Barangay Clearance
-                ================================================== --}}
-
-                <div
+                 <div
                     class="personal-information-wrapper"
                     id="personalInformationCard"
                     style="display:none;"
@@ -1406,11 +1198,6 @@
 
                 </div>
 
-
-                {{-- =================================================
-                     COMPLAINT INFORMATION
-                ================================================== --}}
-
                 <div
                     class="complaint-information-wrapper"
                     id="complaintInformationCard"
@@ -1602,10 +1389,6 @@
                 </div>
 
 
-                {{-- =================================================
-                     PAYMENT FIELDS
-                ================================================== --}}
-
                 <div class="payment-fields-grid">
 
                     <div class="payment-field">
@@ -1723,10 +1506,7 @@
         </div>
 
 
-        {{-- =========================================================
-             FEE SUMMARY
-        ========================================================== --}}
-
+       
         <div class="fee-summary">
 
             <div class="summary-icon">
@@ -1760,10 +1540,7 @@
         </div>
 
 
-        {{-- =========================================================
-             ACTIONS
-        ========================================================== --}}
-
+      
         <div class="form-actions">
 
             <a
@@ -2181,7 +1958,7 @@
 
     color: #84949a;
 
-    font-size: 12px;
+    font-size: 14px;
 
     margin-top: 5px;
 
@@ -3624,9 +3401,6 @@ a,
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* =========================================================
-       BASIC ELEMENTS
-    ========================================================== */
 
     const paymentForm =
         document.getElementById('paymentForm');
@@ -3670,10 +3444,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('displayAmount');
 
 
-    /* =========================================================
-       TRANSACTION DETAIL SELECTORS
-    ========================================================== */
-
     const businessClearanceType =
         document.getElementById('business_clearance_type');
 
@@ -3704,14 +3474,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const courtHours =
         document.getElementById('court_hours');
 
-    const breedingAmount =
-        document.getElementById('breeding_amount');
-
-
-    /* =========================================================
-       BUSINESS SEARCH ELEMENTS
-    ========================================================== */
-
     const businessSuggestionsBox =
         document.getElementById('businessSuggestions');
 
@@ -3725,27 +3487,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.business-suggestion');
 
 
-    /* =========================================================
-       PERSONAL FIELDS
-    ========================================================== */
-
     const personalFields =
         document.querySelectorAll('.personal-field');
-
-
-    /* =========================================================
-       COMPLAINT FIELDS
-    ========================================================== */
 
     const complaintRequiredFields =
         document.querySelectorAll(
             '#complaintInformationCard [data-required]'
         );
-
-
-    /* =========================================================
-       SET AMOUNT
-    ========================================================== */
 
     function setAmount(amount) {
 
@@ -3769,18 +3517,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-
-    /* =========================================================
-       PERSONAL INFORMATION REQUIRED STATE
-    ========================================================== */
-
     function setPersonalFieldsRequired(required) {
-
         personalFields.forEach(function (field) {
 
-            /*
-             * Middle name and blood type are intentionally optional.
-             */
+          
             if (
                 field.id === 'middle_name'
             ) {
@@ -3802,10 +3542,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* =========================================================
-       RESET PERSONAL INFORMATION
-    ========================================================== */
-
+   
     function resetPersonalInformation() {
 
         setPersonalFieldsRequired(false);
@@ -3813,10 +3550,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* =========================================================
-       SHOW / HIDE TRANSACTION DETAILS
-    ========================================================== */
-
+    
     function showDetails(type) {
 
         details.forEach(function (detail) {
@@ -3825,13 +3559,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
 
-
-        /*
-         * Default state:
-         * Business is visible.
-         * Personal information is hidden.
-         * Complaint information is hidden.
-         */
 
         personalInformationCard.style.display =
             'none';
@@ -3850,22 +3577,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         businessSelect.disabled = false;
 
-
-        /*
-         * IMPORTANT:
-         * business_id is hidden, so we do not use
-         * the HTML "required" attribute on it.
-         *
-         * The form submit handler below validates it
-         * for business transactions.
-         */
-
         setPersonalFieldsRequired(false);
-
-
-        /* =====================================================
-           BUSINESS CLEARANCE
-        ====================================================== */
 
         if (type === 'Business Clearance') {
 
@@ -3884,26 +3596,6 @@ document.addEventListener('DOMContentLoaded', function () {
             setPersonalFieldsRequired(false);
 
         }
-
-
-        /* =====================================================
-           CERTIFICATION FEE
-           
-           Barangay Clearance is now INSIDE this process.
-           
-           Therefore:
-           Certification Fee
-               -> Barangay Clearance
-               -> Personal Information
-           
-           Certification Fee
-               -> Barangay Certification
-               -> Personal Information
-           
-           Certification Fee
-               -> Filing Fee Certificate
-               -> Personal Information
-        ====================================================== */
 
         if (type === 'Certification Fee') {
 
@@ -3936,10 +3628,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /* =====================================================
-           FILING COMPLAINT
-        ====================================================== */
 
         if (type === 'Filing Complaint') {
 
@@ -3993,9 +3681,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        /* =====================================================
-           SIGNBOARD TAX
-        ====================================================== */
 
         if (type === 'Signboard Tax') {
 
@@ -4008,10 +3693,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        /* =====================================================
-           COVERED COURT
-        ====================================================== */
-
         if (type === 'Covered Court Fee') {
 
             document
@@ -4022,11 +3703,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /* =====================================================
-           COMMERCIAL BREEDING TAX
-        ====================================================== */
-
         if (type === 'Commercial Breeding Tax') {
 
             document
@@ -4036,11 +3712,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .classList.add('active');
 
 
-            setAmount(
-                breedingAmount
-                    ? breedingAmount.value
-                    : 0
-            );
+            setAmount(50);
 
         }
 
@@ -4053,10 +3725,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-
-    /* =========================================================
-       UPDATE FEE
-    ========================================================== */
 
     function updateFee() {
 
@@ -4079,10 +3747,7 @@ document.addEventListener('DOMContentLoaded', function () {
             selected.value;
 
 
-        /* =====================================================
-           BUSINESS CLEARANCE
-        ====================================================== */
-
+       
         if (type === 'Business Clearance') {
 
             setAmount(
@@ -4094,20 +3759,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
 
         }
-
-
-        /* =====================================================
-           CERTIFICATION FEE
-           
-           This includes:
-           - Barangay Clearance
-           - Barangay Certification
-           - Filing Fee Certificate
-           - Residency
-           - Proof of Income
-           - Barangay ID
-           - Other Barangay Certification
-        ====================================================== */
 
         if (type === 'Certification Fee') {
 
@@ -4121,11 +3772,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /* =====================================================
-           FILING COMPLAINT
-        ====================================================== */
-
         if (type === 'Filing Complaint') {
 
             setAmount(100);
@@ -4134,10 +3780,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
-        /* =====================================================
-           SIGNBOARD TAX
-        ====================================================== */
 
         if (type === 'Signboard Tax') {
 
@@ -4178,10 +3820,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        /* =====================================================
-           COVERED COURT
-        ====================================================== */
-
         if (type === 'Covered Court Fee') {
 
             if (
@@ -4218,10 +3856,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        /* =====================================================
-           COMMERCIAL BREEDING TAX
-        ====================================================== */
-
         if (type === 'Commercial Breeding Tax') {
 
             setAmount(
@@ -4239,10 +3873,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-
-    /* =========================================================
-       TRANSACTION CHANGE
-    ========================================================== */
 
     transactionInputs.forEach(function (input) {
 
@@ -4284,9 +3914,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    /* =========================================================
-       FEE SELECTOR EVENTS
-    ========================================================== */
 
     [
 
@@ -4297,7 +3924,6 @@ document.addEventListener('DOMContentLoaded', function () {
         courtType,
         courtTime,
         courtHours,
-        breedingAmount
 
     ].forEach(function (element) {
 
@@ -4318,20 +3944,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     });
-
-
-    /* =========================================================
-       CERTIFICATION TYPE
-       
-       This is very important.
-       
-       The SELECT contains the fee amount as its value.
-       The hidden input contains the actual certification name.
-       
-       Example:
-       select value = 100
-       hidden certification_type = Barangay Clearance
-    ========================================================== */
 
     if (certificationTypeSelect) {
 
@@ -4360,9 +3972,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* =========================================================
-       SIGNBOARD
-    ========================================================== */
 
     if (signboardType) {
 
@@ -4401,11 +4010,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
     }
-
-
-    /* =========================================================
-       COVERED COURT
-    ========================================================== */
 
     if (courtType) {
 
@@ -4447,39 +4051,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* =========================================================
-       BREEDING AMOUNT
-    ========================================================== */
-
-    if (breedingAmount) {
-
-        breedingAmount.addEventListener(
-            'input',
-            function () {
-
-                setAmount(
-                    this.value
-                );
-
-            }
-        );
-
-    }
 
 
-    /* =========================================================
-       FORM VALIDATION
-       
-       Business Clearance:
-           business_id required
-       
-       Certification Fee:
-           business_id NOT required
-           personal information required
-       
-       Filing Complaint:
-           complaint fields required
-    ========================================================== */
 
     if (paymentForm) {
 
@@ -4509,10 +4082,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const type =
                     selected.value;
 
-
-                /* =================================================
-                   BUSINESS CLEARANCE VALIDATION
-                ================================================== */
 
                 if (
                     type === 'Business Clearance'
@@ -4567,10 +4136,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
 
-                /* =================================================
-                   CERTIFICATION FEE VALIDATION
-                ================================================== */
-
                 if (
                     type === 'Certification Fee'
                 ) {
@@ -4593,11 +4158,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
 
-                    /*
-                     * Make sure the actual certification name
-                     * is sent to the controller.
-                     */
-
                     const selectedOption =
                         certificationTypeSelect.options[
                             certificationTypeSelect.selectedIndex
@@ -4613,12 +4173,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             : '';
 
 
-                    /*
-                     * Personal information is required for
-                     * Barangay Clearance and the other
-                     * Certification Fee transactions.
-                     */
-
                     let missingPersonalInformation =
                         false;
 
@@ -4626,9 +4180,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     personalFields.forEach(
                         function (field) {
 
-                            /*
-                             * These remain optional.
-                             */
 
                             if (
                                 field.id === 'middle_name' ||
@@ -4682,10 +4233,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 }
 
-
-                /* =================================================
-                   FILING COMPLAINT VALIDATION
-                ================================================== */
 
                 if (
                     type === 'Filing Complaint'
@@ -4757,10 +4304,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
 
-                /* =================================================
-                   FEE VALIDATION
-                ================================================== */
-
                 const amount =
                     Number(
                         assessedAmount.value
@@ -4787,10 +4330,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* =========================================================
-       REMOVE INVALID STATE WHEN USER TYPES
-    ========================================================== */
-
     personalFields.forEach(function (field) {
 
         field.addEventListener(
@@ -4813,10 +4352,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    /* =========================================================
-       RESTORE OLD TRANSACTION AFTER VALIDATION ERROR
-    ========================================================== */
-
     const oldTransaction =
         document.querySelector(
             'input[name="transaction_type"]:checked'
@@ -4836,10 +4371,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* =========================================================
-       RESTORE OLD CERTIFICATION TYPE
-    ========================================================== */
-
+    
     if (
         certificationTypeInput &&
         certificationTypeInput.value &&
@@ -4870,10 +4402,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
 
-
-    /* =========================================================
-       BUSINESS SEARCH
-    ========================================================== */
 
     if (
         businessSearch &&
@@ -4937,10 +4465,6 @@ document.addEventListener('DOMContentLoaded', function () {
             'focus',
             function () {
 
-                /*
-                 * Do not open the search if business
-                 * selection is disabled.
-                 */
 
                 if (
                     businessSelect.disabled

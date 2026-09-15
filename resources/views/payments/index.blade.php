@@ -127,39 +127,33 @@
             <tbody>
 
                 @forelse($payments as $p)
+@php
+   
 
-                    @php
+    $requesterName = '—';
+    $requesterLabel = 'Document Requester';
 
-                        $requesterName = '—';
-                        $requesterLabel = 'Document Requester';
+    if ($p->business) {
 
-                        if ($p->business) {
+        $requesterName = $p->business->business_name ?? '—';
 
-                            $requesterName =
-                                $p->business->business_name
-                                ?? '—';
+        $requesterLabel = $p->business->owner_name ?? '—';
 
-                            $requesterLabel =
-                                $p->business->owner_name
-                                ?? '—';
+    }
 
-                        }
-                        elseif (
-                            $p->assessment &&
-                            $p->assessment->transaction_type === 'Filing Complaint' &&
-                            !empty($p->complainant_name)
-                        ) {
-
-                            $requesterName =
-                                $p->complainant_name;
-
-                            $requesterLabel =
-                                'Complainant';
-
-                        }
-                            elseif (
-    ($p->assessment->transaction_type ?? null) === 'Certification Fee'
+    elseif (
+        $p->assessment &&
+        $p->assessment->transaction_type === 'Filing Complaint' &&
+        !empty($p->complainant_name)
     ) {
+
+        $requesterName = $p->complainant_name;
+
+        $requesterLabel = 'Complainant';
+
+    }
+
+    elseif ($p->document) {
 
         $nameParts = array_filter([
             trim($p->document->requester_first_name ?? ''),
@@ -171,29 +165,15 @@
             ? implode(' ', $nameParts)
             : '—';
 
-        $requesterLabel = 'Certification Requester';
+        $requesterLabel = $p->document->document_type
+            ?? 'Document Requester';
 
     }
-
-                        else {
-
-                            $nameParts = array_filter([
-                                $p->document->first_name ?? null,
-                                $p->middle_name ?? null,
-                                $p->last_name ?? null,
-                            ]);
-
-                            $requesterName =
-                                !empty($nameParts)
-                                    ? implode(' ', $nameParts)
-                                    : '—';
-
-                            $requesterLabel =
-                                'Document Requester';
-
-                        }
-
-                    @endphp
+           else {
+                    $requesterName = '—';
+                    $requesterLabel = 'Document Requester';
+                }
+                @endphp
                     <tr>
                         <td>
 
@@ -207,14 +187,11 @@
 
                         </td>
 
-
-                        <td>
-
+<td>
     @if($p->business)
 
-        {{-- BUSINESS PAYMENT --}}
-
         <div class="business-name">
+            <i class="bi bi-building"></i>
             {{ $p->business->business_name ?? '—' }}
         </div>
 
@@ -222,6 +199,13 @@
             <i class="bi bi-person"></i>
             {{ $p->business->owner_name ?? '—' }}
         </small>
+
+        @if($p->document && $p->document->document_type)
+            <small class="document-subtype">
+                <i class="bi bi-file-earmark-text"></i>
+                {{ $p->document->document_type }}
+            </small>
+        @endif
 
     @else
         <div class="requester-name">
@@ -233,8 +217,8 @@
             <i class="bi bi-file-earmark-text"></i>
             {{ $requesterLabel }}
         </small>
-    @endif
 
+    @endif
 </td>
                         <td>
                             <span class="transaction-text">
@@ -265,7 +249,7 @@
                         <td>
                             <div class="receiver-text">
                                 <i class="bi bi-person-check"></i>
-                                {{ $p->receiver->name ?? '—' }}
+                                {{ $p->receivedBy->name ?? '—' }}
                             </div>
                         </td>
                     </tr>
