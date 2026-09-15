@@ -1,0 +1,136 @@
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+body{
+
+    font-family: Segoe UI;
+    margin: 0;
+}
+
+.login-card{
+    background:#edf3fa;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.logo{
+
+width:140px;
+
+margin-bottom:20px;
+
+}
+
+.title{
+
+font-weight:700;
+
+color:#1d4f91;
+
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+font-size:18px;
+
+color:#24406a;
+
+margin-bottom:40px;
+
+}
+
+.form-control{
+
+height:55px;
+
+border-radius:15px;
+
+}
+
+label{
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.login-btn{
+
+background:#147c72;
+
+color:white;
+
+height:55px;
+
+font-size:24px;
+
+font-weight:bold;
+
+border-radius:15px;
+
+}
+
+.login-btn:hover{
+
+background:#0d5f57;
+
+color:white;
+
+}
+
+.notice{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+.notice h5{
+
+font-weight:bold;
+
+color:#34495e;
+
+}
+
+.notice p{
+
+font-size:15px;
+
+color:#555;
+
+}
+
+@media(max-width:768px){
+
+.login-card{
+
+padding:30px;
+
+}
+
+.logo{
+
+width:110px;
+
+}
+
+}

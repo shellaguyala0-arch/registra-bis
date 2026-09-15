@@ -1,0 +1,250 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: #064f73;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 14px;
+    z-index: 1000;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-brand {
+    padding: 10px 12px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 15px;
+}
+.brand-title {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand-subtitle {
+    font-size: 11px;
+    opacity: 0.75;
+    margin-top: 3px;
+}
+
+
+/* USER */
+
+.sidebar-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #064f73;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.user-info strong {
+    font-size: 14px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-info small {
+    font-size: 11px;
+
+    opacity: 0.75;
+}
+
+
+/* SECTION TITLE */
+
+.sidebar-section {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    opacity: 0.6;
+
+    padding: 15px 12px 7px;
+}
+
+
+/* LINKS */
+
+.sidebar-link {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    margin-bottom: 4px;
+
+    border-radius: 10px;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    border: none;
+
+    background: transparent;
+
+    transition: all 0.2s ease;
+
+    cursor: pointer;
+}
+
+.sidebar-link i {
+    width: 20px;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+.sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+}
+
+.sidebar-link.active {
+    background: white;
+
+    color: #064f73;
+
+    font-weight: 600;
+}
+
+
+/* LOGOUT */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    padding-top: 15px;
+}
+
+.logout-link {
+    color: #ffdede;
+}
+
+.logout-link:hover {
+    background: rgba(255, 0, 0, 0.15);
+
+    color: white;
+}
+
+.sidebar-bottom form {
+    width: 100%;
+}
+
+.sidebar-bottom button {
+    text-align: left;
+}
+.main-content {
+    margin-left: 260px;
+    min-height: 100vh;
+    padding: 25px;
+    background: #f5f9fc;
+}
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+    }
+
+}
+#businessForm {
+    width: 100% !important;
+}
+
+#businessForm .registration-card {
+    width: 100% !important;
+}
+
+#businessForm .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+}
+
+#businessForm .col-lg-6 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+}
+
+#businessForm .form-control,
+#businessForm .form-select,
+#businessForm textarea {
+    width: 100% !important;
+}
+
+@media (max-width: 767px) {
+
+    #businessForm .col-lg-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+}
