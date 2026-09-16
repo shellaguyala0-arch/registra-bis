@@ -18,35 +18,34 @@
         }
 
        body {
-    background: #eef7fb;
-    font-family: "Segoe UI", sans-serif;
-    color: #244c63;
-    position: relative;
-}
+        background: #eef7fb;
+        font-family: "Segoe UI", sans-serif;
+        color: #244c63;
+        position: relative;
+    }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('{{ asset('images/background.jpg') }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    z-index: -1;
-}
-        
-        .navbar-custom {
-            background: #014f78;
-            min-height: 95px;
-            box-shadow: 0 2px 15px rgba(0,0,0,.15);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('{{ asset('images/background.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+        z-index: -1;
+    }
+    .navbar-custom {
+        background: #014f78;
+        min-height: 95px;
+        box-shadow: 0 2px 15px rgba(0,0,0,.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
         .brand-logo {
             width: 65px;
@@ -87,34 +86,34 @@ body::before {
 
 
         .hero {
-    position: relative;
-    min-height: calc(100vh - 95px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 70px 20px;
-}
+            position: relative;
+            min-height: calc(100vh - 95px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 70px 20px;
+        }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(1, 41, 63, .55),
-        rgba(1, 41, 63, .70)
-    );
-    z-index: 0;
-}
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(1, 41, 63, .55),
+                rgba(1, 41, 63, .70)
+            );
+            z-index: 0;
+        }
 
-.hero .container {
-    position: relative;
-    z-index: 1;
-}
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
 
         .hero-logo {
             width: 180px;
@@ -125,29 +124,28 @@ body::before {
         }
 
         .hero h1 {
-    margin-top: 30px;
-    color: #ffffff;
-    font-weight: 800;
-    font-size: 5rem;
-    letter-spacing: 2px;
-    text-shadow: 0 3px 12px rgba(0,0,0,.45);
-}
+            margin-top: 30px;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 3px 12px rgba(0,0,0,.45);
+        }
 
-.hero h3 {
-    color: #d7edf7;
-    margin-top: 20px;
-    font-weight: 400;
-    text-shadow: 0 2px 8px rgba(0,0,0,.4);
-}
-
-.hero p {
-    max-width: 760px;
-    margin: 35px auto;
-    color: #e8f4fb;
-    font-size: 1.4rem;
-    line-height: 1.8;
-    text-shadow: 0 2px 6px rgba(0,0,0,.35);
-}
+        .hero h3 {
+            color: #d7edf7;
+            margin-top: 20px;
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0,0,0,.4);
+        }
+        .hero p {
+            max-width: 760px;
+            margin: 35px auto;
+            color: #e8f4fb;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            text-shadow: 0 2px 6px rgba(0,0,0,.35);
+        }
         .btn-start {
             background: #F4A300;
             color: #003b5c;

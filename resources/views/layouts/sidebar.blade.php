@@ -5,9 +5,6 @@
 
 <div class="sidebar">
 
-    {{-- =========================================================
-         BRAND
-    ========================================================== --}}
     <div class="sidebar-brand">
 
         <img
@@ -30,12 +27,6 @@
         </div>
 
     </div>
-
-
-    {{-- =========================================================
-         USER PROFILE
-         REAL PROFILE PHOTO + REAL NAME
-    ========================================================== --}}
     <div class="sidebar-user">
 
         <a
@@ -63,11 +54,7 @@
                 @endif
 
             </div>
-
-
-            {{-- USER NAME --}}
             <div class="user-info">
-
                 <strong>
                     {{ $user->name }}
                 </strong>
@@ -77,19 +64,11 @@
                 </small>
 
             </div>
-
         </a>
-
     </div>
-
-
-    {{-- =========================================================
-         MAIN
-    ========================================================== --}}
     <div class="sidebar-section">
         MAIN
     </div>
-
     <a
         href="{{ route('dashboard') }}"
         class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
@@ -126,7 +105,6 @@
             <span>Business Profiling</span>
         </a>
 
-
         <a
             href="{{ route('closures.index') }}"
             class="sidebar-link {{ request()->routeIs('closures.*') ? 'active' : '' }}"
@@ -134,7 +112,6 @@
             <i class="bi bi-building-x"></i>
             <span>Business Closure</span>
         </a>
-
 
         <div class="sidebar-section">
             FINANCIAL MANAGEMENT
@@ -305,8 +282,6 @@
             <span>My Profile</span>
         </a>
 
-
-        {{-- LOGOUT --}}
         <form
             method="POST"
             action="{{ route('logout') }}"
